@@ -3,8 +3,6 @@ $(document).ready(function () {
 
   function displayPlanner() {
     //loop through every hour
-    // at each hour var my textDisplay = localStorage.getItem(i);
-    //target $(".description").text = myTextDisplay;
     for (var i = 9; i < 18; i++) {
       var userTextDiplay = localStorage.getItem(i);
       var target = "#" + i;
@@ -16,22 +14,15 @@ $(document).ready(function () {
 
   //function to save a planner entry
   $(".saveBtn").on("click", function () {
-
     var time = $(this).parent().attr("id");
     var txt = $(this).prev().val();
     localStorage.setItem(time, txt);
   });
-  //local storage
-  // GIVEN I am using a daily planner to create a schedule
-  // WHEN I open the planner
-  // THEN the current day is displayed at the top of the calendar
-  // moments.js 
-  // WHEN I click into a timeblock
-  // THEN I can enter an event
+
+
+  // the current day is displayed at the top of the calendar
   $("#currentDay").text(moment().format('dddd MMMM Do'));
-  // WHEN I view the timeblocks for that day
-  // THEN each timeblock is color coded to indicate whether it is in the past, present, or future
-  // still need passed and future
+  // timeblock is color coded to indicate whether it is in the past, present, or future
   function upTimes() {
     var hour = moment().hours();
     $(".time-block").each(function(i) {
@@ -50,17 +41,3 @@ $(document).ready(function () {
 });
 
 
-
-// hour < blockId
-// else if ... else
-
-
-// WHEN I click the save button for that timeblock
-// make sure the save button actually works 
-// THEN the text for that event is saved in local storage
-// J.SON PARSE
-// Do we need j.son stringify?????
-
-// WHEN I refresh the page
-// THEN the saved events persist
-// Event.preventDefault(event)
